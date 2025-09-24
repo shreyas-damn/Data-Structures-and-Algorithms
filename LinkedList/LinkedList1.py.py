@@ -1,38 +1,45 @@
-class node:
-    def __init__(self,data=None,next=None):
+class Node:
+    def __init__(self,data,next=None):
         self.data=data
         self.next=next
-class linkedlist:
+class Linkedlist:
     def __init__(self):
         self.head=None
     def insert_at_begining(self,data):
-        Node=node(data,self.head)
-        self.head=node
-    def print(self):
-        if self.head is None:
-            print("empty linked list")
-            return
-        itr=self.head
-        llstr=''
-        while itr:
-            llstr+=str(itr.data)+'-->'
-            itr=itr.next
-        print(llstr)
+        new_node=Node(data,self.head)
+        self.head=new_node
     def insert_at_end(self,data):
-        if self.head is None:
-            self.head=node(data,None)
+        if self.head==None:
+            self.head=Node(data,None)
             return
         itr=self.head
         while itr.next:
             itr=itr.next
-        itr.next=node(data,None)
-if __name__=='__main__':
-    ll=linkedlist()
-    ll.insert_at_begining(0)
-    ll.insert_at_begining(1)
-    ll.insert_at_begining(2)
-    ll.insert_at_begining(3)
-    ll.insert_at_begining(4)
-    ll.insert_at_begining(5)
-    ll.print()
+        itr.next=Node(data,None)
+    def print(self):
+        if self.head is None:
+            print("the list is empty")
+            return
+        itr=self.head
+        while itr:
+            print(itr.data,end="-->")
+            itr=itr.next
+    def insert_val(self,data_list):
+        self.head=None
+        for data in data_list:
+            self.insert_at_end(data)
+    def get_len(self):
+        itr=self.head
+        count=0
+        while itr:
+            count+=1
+            itr=itr.next
+        return count
 
+if __name__=="__main__":
+    ll=Linkedlist()
+    ll.insert_val([1,2,3,4,5,6,7,8])
+    ll.print()
+    print("\nlength of the linked list= ",ll.get_len())
+        
+        
