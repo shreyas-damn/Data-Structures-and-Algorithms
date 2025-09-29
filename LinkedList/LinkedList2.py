@@ -11,14 +11,14 @@ class LinkedList:
         self.head=new_node
     def iae(self,data):
         new_node=Node(data)
-        if self.head==None:
+        if self.head is None:
             self.head=new_node
             return
         itr=self.head
         while itr.next:
             itr=itr.next
         itr.next=new_node
-    def add_values(self,data_list):
+    def add_vals(self,data_list):
         for data in data_list:
             self.iae(data)
     def get_len(self):
@@ -28,30 +28,30 @@ class LinkedList:
             count+=1
             itr=itr.next
         return count
-    def remove_at(self,idx):
-        if idx<0 or idx<self.get_len():
+    def remove_at(self,index):
+        if index<0 or index>=self.get_len():
             raise Exception
-        if idx==0:
+        if index==0:
             self.head=self.head.next
             return
         count=0
         itr=self.head
         while itr:
-            if count==idx-1:
+            if count==index-1:
                 itr.next=itr.next.next
                 break
-            itr=itr.next
             count+=1
+            itr=itr.next
     def print(self):
         itr=self.head
         while itr:
-            print(itr.data,end='-->')
+            print(itr.data,end="-->")
             itr=itr.next
-        print("None \n")
+
 ll=LinkedList()
-ll.iab(1)
-ll.iab(2)
-ll.iab(3)
-ll.add_values([4,5,6,7])
+ll.add_vals([1,2,3,4,5,6])
 ll.print()
-print(ll.get_len())
+ll.remove_at(3)
+ll.print()
+        
+        
