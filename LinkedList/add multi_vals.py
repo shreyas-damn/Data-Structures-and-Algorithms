@@ -25,6 +25,6 @@ class LinkedList:
             itr=itr.next
 
 ll=LinkedList()
-
-ll.add_vals(1,2,3,4,5)
+a=[1,2,3,4,5]
+ll.add_vals(a)
 ll.print()

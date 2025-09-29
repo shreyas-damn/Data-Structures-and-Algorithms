@@ -1,17 +1,13 @@
-class Node:
+class node:
     def __init__(self,data,next=None):
         self.data=data
         self.next=next
-class LinkedList:
+class Linkedlist:
     def __init__(self):
         self.head=None
-    def iab(self,data):
-        new_node=Node(data)
-        new_node.next=self.head
-        self.head=new_node
     def iae(self,data):
-        new_node=Node(data)
-        if self.head==None:
+        new_node=node(data)
+        if self.head is None:
             self.head=new_node
             return
         itr=self.head
@@ -24,11 +20,18 @@ class LinkedList:
     def print(self):
         itr=self.head
         while itr:
-            print(itr.data,end='-->')
+            print(itr.data,end="-->")
             itr=itr.next
-ll=LinkedList()
-ll.iab(1)
-ll.iab(2)
-ll.iab(3)
-ll.add_values([4,5,6,7])
+        print("None \n")
+    def get_len(self):
+        count=0
+        itr=self.head
+        while itr:
+            count+=1
+            itr=itr.next
+        return count
+ll=Linkedlist()
+ll.add_values([1,2,3,4,5,6])
 ll.print()
+print(ll.get_len())
+        
