@@ -15,5 +15,4 @@ class HashTable:
 
 hash=HashTable()
 hash.add("shreyas",19)
-
 print(hash.arr)

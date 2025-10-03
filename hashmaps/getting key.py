@@ -4,6 +4,6 @@ def get_hash(key):
     for char in key:
         #ord gets ascii value of character
         h+=ord(char)
-    return h%100
+    return h
 
-print(get_hash("shreyas"))
+print(get_hash("Bhavadharani"))
